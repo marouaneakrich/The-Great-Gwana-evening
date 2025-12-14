@@ -1,0 +1,360 @@
+{
+  "info": {
+    "name": "Gnawa API - Production Collection",
+    "description": "Complete API collection for The Great Gnawa Evening event management system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Check if API server is running"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Event Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/event",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "event"]
+        },
+        "description": "Fetch main event information (name, date, venue, ticket price)"
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"id\": 1,\n  \"event_name\": \"The Great Gnawa Evening\",\n  \"description\": \"A mesmerizing cultural celebration...\",\n  \"date\": \"2024-12-20T19:00:00.000Z\",\n  \"venue\": \"Théâtre de Verdure, Agadir\",\n  \"banner_url\": \"https://example.com/banner.jpg\",\n  \"ticket_price\": \"150.00\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Artists",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/artists?search=",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "artists"],
+          "query": [
+            {
+              "key": "search",
+              "value": "",
+              "description": "Optional search filter (e.g., 'Maalem')"
+            }
+          ]
+        },
+        "description": "Fetch all artists. Optional ?search parameter for filtering by name"
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Maalem Hassan Hakmoun\",\n    \"bio\": \"Master of the Gnawa tradition...\",\n    \"photo_url\": \"https://example.com/photo.jpg\",\n    \"performance_time\": \"2024-12-20T19:00:00.000Z\",\n    \"created_at\": \"2024-01-15T10:00:00.000Z\",\n    \"updated_at\": \"2024-01-15T10:00:00.000Z\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Artist by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/artists/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "artists", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Artist ID number"
+            }
+          ]
+        },
+        "description": "Fetch single artist details"
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"id\": 1,\n  \"name\": \"Maalem Hassan Hakmoun\",\n  \"bio\": \"Master of the Gnawa tradition...\",\n  \"photo_url\": \"https://example.com/photo.jpg\",\n  \"performance_time\": \"2024-12-20T19:00:00.000Z\",\n  \"created_at\": \"2024-01-15T10:00:00.000Z\",\n  \"updated_at\": \"2024-01-15T10:00:00.000Z\"\n}"
+        },
+        {
+          "name": "Not Found",
+          "status": "Not Found",
+          "code": 404,
+          "body": "{\"error\":\"Artist not found\"}"
+        }
+      ]
+    },
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user@example.com\",\n  \"full_name\": \"John Doe\",\n  \"phone\": \"+212600000000\",\n  \"ticket_count\": 2\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/bookings",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "bookings"]
+        },
+        "description": "Create a new ticket booking. Auto-generates confirmation_code."
+      },
+      "response": [
+        {
+          "name": "Created",
+          "status": "Created",
+          "code": 201,
+          "body": "{\n  \"message\": \"Booking created successfully\",\n  \"booking\": {\n    \"id\": 1,\n    \"email\": \"user@example.com\",\n    \"full_name\": \"John Doe\",\n    \"phone\": \"+212600000000\",\n    \"ticket_count\": 2,\n    \"confirmation_code\": \"GNW-A7K2P\",\n    \"created_at\": \"2024-01-15T18:30:00.000Z\",\n    \"updated_at\": \"2024-01-15T18:30:00.000Z\"\n  }\n}"
+        },
+        {
+          "name": "Validation Error",
+          "status": "Bad Request",
+          "code": 400,
+          "body": "{\"errors\":[{\"msg\":\"Valid email is required\",\"param\":\"email\",\"location\":\"body\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "Get Booking by Code",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/bookings/:code",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "bookings", ":code"],
+          "variable": [
+            {
+              "key": "code",
+              "value": "GNW-A7K2P",
+              "description": "Confirmation code (e.g., GNW-ABC12)"
+            }
+          ]
+        },
+        "description": "Fetch a specific booking using confirmation code"
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"id\": 1,\n  \"email\": \"user@example.com\",\n  \"full_name\": \"John Doe\",\n  \"phone\": \"+212600000000\",\n  \"ticket_count\": 2,\n  \"confirmation_code\": \"GNW-A7K2P\",\n  \"created_at\": \"2024-01-15T18:30:00.000Z\",\n  \"updated_at\": \"2024-01-15T18:30:00.000Z\"\n}"
+        },
+        {
+          "name": "Not Found",
+          "status": "Not Found",
+          "code": 404,
+          "body": "{\"error\":\"Booking not found\"}"
+        }
+      ]
+    },
+    {
+      "name": "Get Bookings by Email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/bookings/email/:email",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "bookings", "email", ":email"],
+          "variable": [
+            {
+              "key": "email",
+              "value": "user@example.com",
+              "description": "User email address"
+            }
+          ]
+        },
+        "description": "Fetch all bookings for a specific email"
+      },
+      "response": [
+        {
+          "name": "Success Response",
+          "status": "OK",
+          "code": 200,
+          "body": "[\n  {\n    \"id\": 1,\n    \"email\": \"user@example.com\",\n    \"full_name\": \"John Doe\",\n    \"phone\": \"+212600000000\",\n    \"ticket_count\": 2,\n    \"confirmation_code\": \"GNW-A7K2P\",\n    \"created_at\": \"2024-01-15T18:30:00.000Z\",\n    \"updated_at\": \"2024-01-15T18:30:00.000Z\"\n  }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"your_password\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "login"]
+        },
+        "description": "Admin authentication endpoint"
+      },
+      "response": [
+        {
+          "name": "Success",
+          "status": "OK",
+          "code": 200,
+          "body": "{\n  \"message\": \"Login successful\",\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"\n}"
+        },
+        {
+          "name": "Unauthorized",
+          "status": "Unauthorized",
+          "code": 401,
+          "body": "{\"error\":\"Invalid credentials\"}"
+        }
+      ]
+    },
+    {
+      "name": "Create Artist (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}",
+            "description": "JWT token from /api/auth/login"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"New Artist\",\n  \"bio\": \"Artist biography...\",\n  \"photo_url\": \"https://example.com/photo.jpg\",\n  \"performance_time\": \"2024-12-20T21:00:00\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/artists",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "artists"]
+        },
+        "description": "Create new artist (requires admin token)"
+      },
+      "response": [
+        {
+          "name": "Created",
+          "status": "Created",
+          "code": 201,
+          "body": "{\n  \"id\": 5,\n  \"name\": \"New Artist\",\n  \"bio\": \"Artist biography...\",\n  \"photo_url\": \"https://example.com/photo.jpg\",\n  \"performance_time\": \"2024-12-20T21:00:00.000Z\",\n  \"updated_at\": \"2024-01-15T19:00:00.000Z\",\n  \"created_at\": \"2024-01-15T19:00:00.000Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Artist (Admin)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Artist Name\",\n  \"bio\": \"Updated biography...\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/artists/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "artists", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        },
+        "description": "Update existing artist (requires admin token)"
+      }
+    },
+    {
+      "name": "Delete Artist (Admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{adminToken}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/artists/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "artists", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        },
+        "description": "Delete artist (requires admin token)"
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [""],
+        "type": "text/javascript"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "exec": [""],
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "adminToken",
+      "value": "",
+      "type": "string",
+      "description": "Set this after logging in via POST /api/auth/login"
+    }
+  ]
+}
