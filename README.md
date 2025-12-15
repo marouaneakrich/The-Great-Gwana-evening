@@ -96,6 +96,13 @@ export NODE_ENV=production
 export DATABASE_URL=postgres://user:pass@host:5432/dbname
 npm start
 ```
+------------------------------------------------------------------------
+
+## UML Class Diagram
+
+![TGGE UML Class Diagram](./assets/UML.svg)
+
+[📥 Download UML Diagram](./assets/UML.drawio)
 
 ------------------------------------------------------------------------
 
