@@ -1,0 +1,59 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.2.7">
+  <diagram name="UML Diagram" id="eV9NEQqXOaGCubohyXUL">
+    <mxGraphModel dx="1744" dy="930" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xOSUOLlO5S84KgcDa63j-51" parent="1" style="html=1;fontColor=#FFFFFF;fillColor=#1A1A1A;strokeColor=#E0E0E0;whiteSpace=wrap;rounded=0;verticalAlign=top;align=left;fontSize=14;spacingLeft=10;fontFamily=Arial;" value="" vertex="1">
+          <mxGeometry height="1" width="1" x="330" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-59" edge="1" parent="1" source="xOSUOLlO5S84KgcDa63j-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="xOSUOLlO5S84KgcDa63j-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-60" edge="1" parent="1" source="xOSUOLlO5S84KgcDa63j-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="xOSUOLlO5S84KgcDa63j-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-52" parent="1" style="html=1;whiteSpace=wrap;rounded=0;verticalAlign=top;align=left;fontSize=14;spacingLeft=10;fontFamily=monospace;" value="&lt;b style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; EventInfo&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/b&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+int id&lt;br&gt;+string title&lt;br&gt;+text description&lt;br&gt;+date date&lt;br&gt;+string location&lt;br&gt;+string bannerUrl&lt;br&gt;+float ticketPrice&lt;/p&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+getEventInfo()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="260" width="240" x="630" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-53" parent="1" style="html=1;whiteSpace=wrap;rounded=0;verticalAlign=top;align=left;fontSize=14;spacingLeft=10;fontFamily=monospace;" value="&lt;b style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Artist&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+int id&lt;br&gt;+string name&lt;br&gt;+text bio&lt;br&gt;+string photoUrl&lt;br&gt;+string performanceTime&lt;br&gt;+string genre&lt;/p&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+getAllArtists()&lt;br&gt;+getArtistById(id)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="250" width="240" x="340" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-54" parent="1" style="html=1;whiteSpace=wrap;rounded=0;verticalAlign=top;align=left;fontSize=14;spacingLeft=10;fontFamily=monospace;" value="&lt;b style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Booking&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+int id&lt;br&gt;+string name&lt;br&gt;+string email&lt;br&gt;+int tickets&lt;br&gt;+string confirmationCode&lt;br&gt;+date createdAt&lt;/p&gt;&lt;hr style=&quot;border-color: rgb(224, 224, 224);&quot;&gt;&lt;p style=&quot;line-height:1.4;&quot;&gt;+createBooking()&lt;br&gt;+getBookingByCode(code)&lt;br&gt;+getBookingsByEmail(email)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="270" width="250" x="910" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-55" edge="1" parent="1" source="xOSUOLlO5S84KgcDa63j-52" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;fontColor=#FFFFFF;strokeColor=#FFFFFF;fontSize=14;" target="xOSUOLlO5S84KgcDa63j-53" value="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="990" />
+              <mxPoint x="530" y="990" />
+              <mxPoint x="530" y="1010" />
+            </Array>
+            <mxPoint x="630" y="970" as="sourcePoint" />
+            <mxPoint x="450" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-56" parent="xOSUOLlO5S84KgcDa63j-55" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontColor=#FFFFFF;labelBackgroundColor=#1A1A1A;fontSize=14;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-57" edge="1" parent="1" source="xOSUOLlO5S84KgcDa63j-52" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;fontColor=#FFFFFF;strokeColor=#FFFFFF;fontSize=14;" target="xOSUOLlO5S84KgcDa63j-54" value="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="990" />
+              <mxPoint x="970" y="990" />
+              <mxPoint x="970" y="1010" />
+            </Array>
+            <mxPoint x="870" y="970" as="sourcePoint" />
+            <mxPoint x="1035" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-58" parent="xOSUOLlO5S84KgcDa63j-57" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontColor=#FFFFFF;labelBackgroundColor=#1A1A1A;fontSize=14;" value="*" vertex="1">
+          <mxGeometry relative="1" x="1" as="geometry" />
+        </mxCell>
+        <mxCell id="xOSUOLlO5S84KgcDa63j-62" parent="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;fontColor=#FFFFFF;labelBackgroundColor=#1A1A1A;fontSize=14;" value="1" vertex="1">
+          <mxGeometry x="570" y="840" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

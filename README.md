@@ -96,6 +96,13 @@ export NODE_ENV=production
 export DATABASE_URL=postgres://user:pass@host:5432/dbname
 npm start
 ```
+------------------------------------------------------------------------
+
+## UML Class Diagram
+
+![TGGE UML Class Diagram](./assets/UML.svg)
+
+[📥 Download UML Diagram](./assets/UML.drawio)
 
 ------------------------------------------------------------------------
 
@@ -227,6 +234,13 @@ gnawa-api/
 
 A full Postman collection is included in this README for testing all
 endpoints.
+
+[📥 Download Postman Collection](./assets/pastman.json)
+
+------------------------------------------------------------------------
+## 🖥️ Presentation
+
+[📥 Download Presentation](./assets/The%20Great%20Gnawa%20Evening.pdf) 
 
 ------------------------------------------------------------------------
 
