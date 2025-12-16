@@ -235,6 +235,9 @@ gnawa-api/
 A full Postman collection is included in this README for testing all
 endpoints.
 
+[📥 Download Postman Collection](./assets/pastman.json)
+
+
 ------------------------------------------------------------------------
 
 ## 👨‍💻 Author
