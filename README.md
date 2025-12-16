@@ -237,6 +237,10 @@ endpoints.
 
 [📥 Download Postman Collection](./assets/pastman.json)
 
+------------------------------------------------------------------------
+## 🖥️ Presentation
+
+[📥 Download Presentation](./assets/The%20Great%20Gnawa%20Evening.pdf)
 
 ------------------------------------------------------------------------
 
