@@ -240,7 +240,7 @@ endpoints.
 ------------------------------------------------------------------------
 ## 🖥️ Presentation
 
-[📥 Download Presentation](./assets/The%20Great%20Gnawa%20Evening.pdf) 
+[📥 Download Presentation](./assets/The%20Great%20Gnawa%20Evening.pdf)
 
 ------------------------------------------------------------------------
 
