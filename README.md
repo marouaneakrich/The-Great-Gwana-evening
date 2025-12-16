@@ -39,6 +39,12 @@ for managing a cultural event featuring Gnawa musical heritage.
 
 ------------------------------------------------------------------------
 
+## 🎥 Demo Video
+
+https://github.com/user-attachments/assets/43e93038-ed03-4538-9fae-46a034a56501
+
+------------------------------------------------------------------------
+
 ## 🔧 Installation
 
 ### 1. Clone & Setup
